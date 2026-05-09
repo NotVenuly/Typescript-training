@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training 7 - Modal Logic</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { font-family: sans-serif; max-width: 600px; margin: 40px auto; padding: 20px; }
+
+        .open-btn { padding: 14px 24px; font-size: 1rem; cursor: pointer; 
+                    background: slateblue; color: white; border: none; border-radius: 10px; }
+
+        .modal-overlay {
+            display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7);
+            align-items: center; justify-content: center; z-index: 1000;
+        }
+        .modal-overlay.visible { display: flex; }
+
+        .modal-box {
+            background: white; color: #222; border-radius: 16px; padding: 32px;
+            max-width: 450px; width: 90%; position: relative; box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .modal-close-btn {
+            position: absolute; top: 12px; right: 16px; background: none; border: none;
+            font-size: 1.5rem; cursor: pointer; color: #666;
+        }
+
+        .counter-display { margin: 20px 0; font-size: 2rem; font-weight: bold; }
+        .counter-btn { padding: 10px 18px; margin: 4px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>Modal Demo</h1>
+    <p>Click the button below to open a counter inside a modal.</p>
+    <p id="outsideCounter">Outside counter: 0</p>
+    <button class="open-btn" id="openModalBtn">Open Modal</button>
+
+    <div class="modal-overlay" id="modalOverlay" aria-hidden="true">
+        <div class="modal-box" id="modalBox">
+            <button class="modal-close-btn" id="modalCloseBtn">&times;</button>
+            <h2>Counter</h2>
+            <p id="modalCounter" class="counter-display">0</p>
+            <button class="counter-btn" id="incrementBtn">+1</button>
+            <button class="counter-btn" id="decrementBtn">-1</button>
+            <button class="counter-btn" id="resetBtn">Reset</button>
+            <p style="margin-top: 16px; color: #888;">Press Escape or click outside to close</p>
+        </div>
+    </div>
+
+    <script src="TS-training7.js"></script>
+</body>
+</html>
