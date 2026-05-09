@@ -18,7 +18,7 @@ decr.addEventListener("click", () => {
     insideCounter.textContent = `${currNumber}`;
 });
 reset.addEventListener("click", () => {
-    currNumber = currNumber - currNumber;
+    currNumber = 0;
     insideCounter.textContent = `${currNumber}`;
 });
 modalBtn.addEventListener("click", () => {
@@ -28,7 +28,7 @@ closeBtn.addEventListener("click", () => {
     CloseModal();
 });
 document.addEventListener("keydown", (event) => {
-    if (event.key.toLowerCase() === "escape" || event.key.toLowerCase() === "x") {
+    if ((event.key.toLowerCase() === "escape" || event.key.toLowerCase() === "x") && overlay.classList.contains("visible")) {
         CloseModal();
     }
 });
@@ -38,6 +38,8 @@ overlay.addEventListener("click", (event) => {
     }
 });
 function OpenModal() {
+    currNumber = 0;
+    insideCounter.textContent = "0";
     overlay.classList.add("visible");
     overlay.setAttribute("aria-hidden", "false");
 }

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training 8 - EmailJS</title>
+    <style>
+        body { font-family: sans-serif; max-width: 500px; margin: 40px auto; padding: 20px; }
+        form { display: grid; gap: 16px; }
+        label { font-weight: bold; margin-bottom: -12px; }
+        input, textarea { padding: 12px; border: 1px solid #ccc; border-radius: 8px; font-size: 1rem; }
+        textarea { min-height: 120px; resize: vertical; }
+        button { padding: 14px; background: slateblue; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 1rem; }
+        button:disabled { background: gray; cursor: not-allowed; }
+        .feedback { margin-top: 12px; font-weight: bold; }
+        .success { color: green; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+    <h1>Send a Test Email</h1>
+
+    <form id="emailForm">
+        <label for="name">Your Name</label>
+        <input id="name" name="from_name" type="text" placeholder="Oskari" required>
+
+        <label for="email">Your Email</label>
+        <input id="email" name="from_email" type="email" placeholder="you@example.com" required>
+
+        <label for="subject">Subject</label>
+        <input id="subject" name="subject" type="text" placeholder="Hello!" required>
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
+
+        <button type="submit" id="submitBtn">Send Email</button>
+        <p class="feedback" id="feedback"></p>
+    </form>
+
+    <!-- Load EmailJS from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="TS-training8.js"></script>
+</body>
+</html>
